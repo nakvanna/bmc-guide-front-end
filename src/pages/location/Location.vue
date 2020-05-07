@@ -118,7 +118,7 @@ export default {
 
   created() {
     // this.$store.dispatch("locations/fetchLocations");
-    // console.log(this.locations[0]['thumbnail']);
+    console.log(this.locations);
   },
 
   data() {
