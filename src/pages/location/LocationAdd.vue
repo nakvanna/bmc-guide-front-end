@@ -13,6 +13,7 @@
           <div class="row q-pa-md q-gutter-sm">
             <div class="col">
               <q-select
+                @input="clearSubCate"
                 bottom-slots
                 v-model="locations.category"
                 :options="categories"
@@ -27,6 +28,8 @@
                 v-model="locations.sub_category"
                 :options="subCategories"
                 label="Subcategory"
+                lazy-rules
+                :rules="[ val => !!val || 'Please select something']"
               >
                 <template v-slot:append>
                   <q-btn
@@ -91,7 +94,7 @@
                 <div class="col q-pl-md">
                   <q-input
                     v-model="locations.name"
-                    label="Shop name *"
+                    label="Location name *"
                     lazy-rules
                     :rules="[ val => val && val.length > 0 || 'Please type something']"
                   />
@@ -130,8 +133,9 @@
                   <q-input
                     v-model="locations.email"
                     label="E-mail *"
+                    type="email"
                     lazy-rules
-                    :rules="[ val => val && val.length > 0 || 'Please type something']"
+                    :rules="[val => !!val || 'Email is missing', isValidEmail]"
                   />
                 </div>
                 <div class="col q-pl-md">
@@ -144,13 +148,9 @@
                     hide-dropdown-icon
                     input-debounce="0"
                     @new-value="createValue"
-                  />
-                  <!-- <q-input
-                    v-model="locations.can_do"
-                    label="Can do *"
                     lazy-rules
-                    :rules="[ val => val && val.length > 0 || 'Please type something']"
-                  />-->
+                    :rules="[ val => val && val.length > 0 || 'Please type something & enter']"
+                  />
                 </div>
               </div>
             </div>
@@ -337,20 +337,15 @@ export default {
 
   created() {
     this.$store.dispatch("sub_categories/fetchSubCategories");
-    console.log(this.activeUserInfo.uid);
   },
 
   data() {
     return {
-      categories: [
-        "ប្រាសាទ Temple",
-        "ព្រៃភ្នំ Mountain",
-        "សណ្ឋាគា Accommodation"
-      ],
+      categories: ["Things to Do", "Restuarant", "Accommodation", "Shopping"],
       show_dialog: false,
 
       locations: {
-        user_id: '0',
+        user_id: "0",
         name: null,
         category: null,
         sub_category: null,
@@ -374,12 +369,20 @@ export default {
   },
 
   methods: {
+    clearSubCate() {
+      this.locations.sub_category = "";
+    },
+    isValidEmail(val) {
+      const emailPattern = /^(?=[a-zA-Z0-9@._%+-]{6,254}$)[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/;
+      return emailPattern.test(val) || "Invalid email";
+    },
     showDialog() {
       this.show_dialog = true;
     },
     createValue(val, done) {
       // specific logic to eventually call done(...) -- or not
       done(val, "add-unique");
+      console.log(this.subCategories);
     },
     storeLocation() {
       let vm = this;

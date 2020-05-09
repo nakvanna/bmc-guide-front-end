@@ -26,18 +26,26 @@
         <q-list padding>
           <q-item clickable v-ripple to="/location" exact>
             <q-item-section avatar>
-              <q-icon name="place" />
+              <q-icon name="map" />
             </q-item-section>
 
             <q-item-section>Location</q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="/test" exact>
+          <q-item clickable v-ripple to="/sponsor" exact>
             <q-item-section avatar>
-              <q-icon name="star" />
+              <q-icon name="stars" />
             </q-item-section>
 
-            <q-item-section>Star</q-item-section>
+            <q-item-section>Sponsor</q-item-section>
+          </q-item>
+          
+          <q-item clickable v-ripple to="/service" exact>
+            <q-item-section avatar>
+              <q-icon name="airplanemode_active" />
+            </q-item-section>
+
+            <q-item-section>Service</q-item-section>
           </q-item>
 
           <q-item clickable v-ripple to="/user" exact>
@@ -59,8 +67,8 @@
           <q-avatar size="56px" class="q-mb-sm">
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
           </q-avatar>
-          <div class="text-weight-bold">Razvan Stoenescu</div>
-          <div>@rstoenescu</div>
+          <div class="text-weight-bold text-uppercase	">{{ displayName.displayName }}</div>
+          <div>@BMC-Guide</div>
         </div>
       </q-img>
     </q-drawer>
@@ -87,7 +95,6 @@
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink";
 import { LocalStorage } from "quasar";
 
 export default {
@@ -97,6 +104,9 @@ export default {
     },
     activeUserInfo() {
       return this.$store.state.users.AppActiveUser;
+    },
+    displayName(){
+      return LocalStorage.getItem("userInfo").user_info;
     }
   },
 
@@ -119,52 +129,10 @@ export default {
 
   name: "MainLayout",
 
-  components: {
-    EssentialLink
-  },
-
   data() {
     return {
       alert: false,
       leftDrawerOpen: false,
-      essentialLinks: [
-        {
-          title: "Docs",
-          caption: "quasar.dev",
-          icon: "school",
-          link: "https://quasar.dev"
-        },
-        {
-          title: "Github",
-          caption: "github.com/quasarframework",
-          icon: "code",
-          link: "https://github.com/quasarframework"
-        },
-        {
-          title: "Discord Chat Channel",
-          caption: "chat.quasar.dev",
-          icon: "chat",
-          link: "https://chat.quasar.dev"
-        },
-        {
-          title: "Forum",
-          caption: "forum.quasar.dev",
-          icon: "record_voice_over",
-          link: "https://forum.quasar.dev"
-        },
-        {
-          title: "Twitter",
-          caption: "@quasarframework",
-          icon: "rss_feed",
-          link: "https://twitter.quasar.dev"
-        },
-        {
-          title: "Facebook",
-          caption: "@QuasarFramework",
-          icon: "public",
-          link: "https://facebook.quasar.dev"
-        }
-      ]
     };
   }
 };
