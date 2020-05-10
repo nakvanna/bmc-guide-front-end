@@ -2,7 +2,7 @@
   <q-page>
     <div class="q-pa-md">
       <q-list bordered separator>
-        <q-item clickable v-ripple>
+        <q-item>
           <q-item-section class="text-bold">USERNAME</q-item-section>
           <q-item-section class="text-bold">E-MAIL</q-item-section>
           <q-item-section class="text-bold">TYPE</q-item-section>
@@ -16,6 +16,7 @@
           <q-item-section v-else class="text-negative"> INACTIVE </q-item-section>
         </q-item>
       </q-list>
+
     </div>
   </q-page>
 </template>

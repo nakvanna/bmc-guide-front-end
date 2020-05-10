@@ -2,7 +2,7 @@
   <q-dialog v-model="show_dialog" full-width persistent>
     <q-card>
       <q-bar>
-        <div class="text-h6">Add New Location Place</div>
+        <div class="text-h6">Add New Things to Do</div>
         <q-space />
         <q-btn dense flat icon="close" v-close-popup color="negative">
           <q-tooltip>Close</q-tooltip>
@@ -313,6 +313,12 @@ export default {
   },
 
   computed: {
+    categories(){
+      return this.$store.state.categories.categories.map(function(e){
+        return e.category
+      });
+      
+    },
     filteredCategory() {
       let self = this;
       return this.$store.state.sub_categories.sub_categories.filter(function(
@@ -341,7 +347,7 @@ export default {
 
   data() {
     return {
-      categories: ["Things to Do", "Restuarant", "Accommodation", "Shopping"],
+      // categories: ["Things to Do", "Restuarant", "Accommodation", "Shopping"],
       show_dialog: false,
 
       locations: {
@@ -382,7 +388,6 @@ export default {
     createValue(val, done) {
       // specific logic to eventually call done(...) -- or not
       done(val, "add-unique");
-      console.log(this.subCategories);
     },
     storeLocation() {
       let vm = this;

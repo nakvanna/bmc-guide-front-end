@@ -6,6 +6,7 @@ import categories from './store_category'
 import galleries from './store_gallery'
 import sub_categories from './store_sub_category'
 import users from './store_user'
+import sponsors from './store_sponsor'
 
 Vue.use(Vuex)
 
@@ -21,7 +22,7 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      locations, categories, galleries, sub_categories, users
+      locations, categories, galleries, sub_categories, users, sponsors
     },
 
     // enable strict mode (adds overhead!)

@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md">
     <div v-if="locations.length">
-      <div class="row q-pb-lg">
+      <!-- <div class="row q-pb-lg">
         <div class="col-12 col-md-4">
           <q-btn
             color="primary"
@@ -10,7 +10,7 @@
             @click="$refs.location_add.showDialog()"
           />
         </div>
-      </div>
+      </div> -->
 
       <q-list bordered class="q-pa-lg rounded-borders">
         <q-item-label header>List of Items</q-item-label>
@@ -69,6 +69,10 @@
         </q-item>
         <!-- <q-separator spaced /> -->
       </q-list>
+
+      <q-page-sticky position="bottom-right" :offset="[18, 18]">
+        <q-btn @click="$refs.location_add.showDialog()" fab icon="add" color="primary" />
+      </q-page-sticky>
     </div>
     <div v-else>
       <q-page class="flex flex-center">

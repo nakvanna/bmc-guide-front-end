@@ -70,7 +70,7 @@ export default {
     login() {
       let vm = this;
       vm.$store.dispatch("users/login", this.data).then(function(res) {
-        vm.$router.push("/location");
+        vm.$router.push("/");
       });
     }
   }

@@ -24,7 +24,7 @@
         style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd"
       >
         <q-list padding>
-          <q-item clickable v-ripple to="/location" exact>
+          <q-item clickable v-ripple to="/" exact>
             <q-item-section avatar>
               <q-icon name="map" />
             </q-item-section>
@@ -119,6 +119,8 @@ export default {
    
    this.$store.dispatch("locations/fetchLocations");
    this.$store.dispatch("users/fetchUsers");
+   this.$store.dispatch("categories/fetchCategories");
+   this.$store.dispatch("sponsors/fetchSponsor");
   },
   methods: {
     logout() {
