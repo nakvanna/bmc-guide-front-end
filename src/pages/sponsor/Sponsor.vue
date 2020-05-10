@@ -13,7 +13,7 @@
           <q-item clickable v-ripple v-for="(sponsor, i) in sponsors" :key="i">
             <q-item-section>
               <q-avatar rounded>
-                <img :src="baseUrl + sponsor.image" />
+                <img :src="sponsor.image" />
               </q-avatar>
             </q-item-section>
             <q-item-section>{{sponsor.name}}</q-item-section>
@@ -63,10 +63,9 @@
 <script>
 import SponsorAdd from "./SponsorAdd";
 import SponsorEdit from "./SponsorEdit";
-import baseUrl from '../../boot/bash_image_url';
 export default {
   components: {
-    SponsorAdd, SponsorEdit, baseUrl
+    SponsorAdd, SponsorEdit
   },
 
   computed: {
@@ -76,12 +75,10 @@ export default {
   },
 
   created(){
-    console.log(baseUrl);
   },
 
   data() {
     return {
-      baseUrl: "http://127.0.0.1:8000",
       alert: false,
       deleteData: {
         id: null, i: null, 

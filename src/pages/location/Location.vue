@@ -18,7 +18,7 @@
           <!-- <h2>{{ baseUrl + location.thumbnail }}</h2> -->
           <q-item-section avatar top>
             <q-avatar size="75px">
-              <img :src="baseUrl+location.thumbnail" />
+              <img :src="location.thumbnail" />
             </q-avatar>
           </q-item-section>
 
@@ -122,12 +122,10 @@ export default {
 
   created() {
     // this.$store.dispatch("locations/fetchLocations");
-    console.log(this.locations);
   },
 
   data() {
     return {
-      baseUrl: "http://127.0.0.1:8000",
       alert: false,
       deleteData: {
         id: null,

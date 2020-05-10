@@ -50,7 +50,7 @@
             style="max-width: 300px"
                 />-->
                 <q-card class="my-card" v-show="is_upload">
-                  <q-img :src="baseUrl + locations.thumbnail" basic width="200px">
+                  <q-img :src="locations.thumbnail" basic width="200px">
                     <div class="absolute-bottom text-h6">
                       <div class="row">
                         <q-btn
@@ -273,7 +273,7 @@
                 <q-img
                   v-for="(img, i) in locations.gallery"
                   :key="i"
-                  :src="baseUrl + img.galleries"
+                  :src="img.galleries"
                   spinner-color="red"
                   style="height: 140px; max-width: 150px"
                 >
@@ -392,8 +392,6 @@ export default {
   data() {
     return {
       sub_cate_on_input: false,
-      baseUrl: "http://127.0.0.1:8000",
-      url: "https://cdn.quasar.dev/img/parallax2.jpg",
       is_upload: true,
       is_gallery_upload: true,
       categories: [

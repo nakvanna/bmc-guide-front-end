@@ -55,7 +55,7 @@
               </q-uploader>
 
               <q-card class="my-card" v-show="!is_upload">
-                <q-img :src="baseUrl + sponsors.image" basic>
+                <q-img :src="sponsors.image" basic>
                   <div class="absolute-bottom text-h6">
                     <div class="row">
                       <q-btn
@@ -117,7 +117,6 @@
 export default {
   data() {
     return {
-      baseUrl: "http://127.0.0.1:8000",
       is_upload: false,
       show_dialog: false,
       formData: new FormData(),

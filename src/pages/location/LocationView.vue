@@ -8,7 +8,7 @@
       <div class="row q-pa-sm">
         <div class="col-2">
           <q-card class="width: 100% max-width: 250px">
-            <q-img :src="baseUrl + locations.thumbnail" basic>
+            <q-img :src="locations.thumbnail" basic>
               <div class="absolute-bottom text-h6">Thumbnail</div>
             </q-img>
           </q-card>
@@ -40,7 +40,7 @@
               <q-img
                 v-for="(img, i) in locations.gallery"
                 :key="i"
-                :src="baseUrl + img.galleries"
+                :src="img.galleries"
                 spinner-color="red"
                 style="height: 140px; max-width: 150px"
               />
@@ -57,9 +57,7 @@
 export default {
   data() {
     return {
-      baseUrl: "http://127.0.0.1:8000",
       show_dialog: false,
-      url: "https://placeimg.com/500/300/nature",
       locations: {
         name: null,
         category: null,
