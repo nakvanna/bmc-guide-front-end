@@ -19,7 +19,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above :width="200" :breakpoint="400">
+    <q-drawer v-model="leftDrawerOpen" :width="200" :breakpoint="400">
       <q-scroll-area
         style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd"
       >
@@ -38,6 +38,14 @@
             </q-item-section>
 
             <q-item-section>Sponsor</q-item-section>
+          </q-item>
+          
+          <q-item clickable v-ripple to="/blog" exact>
+            <q-item-section avatar>
+              <q-icon name="collections" />
+            </q-item-section>
+
+            <q-item-section>Blog</q-item-section>
           </q-item>
           
           <q-item clickable v-ripple to="/service" exact>
@@ -121,6 +129,7 @@ export default {
    this.$store.dispatch("users/fetchUsers");
    this.$store.dispatch("categories/fetchCategories");
    this.$store.dispatch("sponsors/fetchSponsor");
+   this.$store.dispatch("blogs/fetchBlogs");
   },
   methods: {
     logout() {

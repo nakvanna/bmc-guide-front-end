@@ -1,16 +1,6 @@
 <template>
   <div class="q-pa-md">
     <div v-if="locations.length">
-      <!-- <div class="row q-pb-lg">
-        <div class="col-12 col-md-4">
-          <q-btn
-            color="primary"
-            icon="add"
-            label="Add New"
-            @click="$refs.location_add.showDialog()"
-          />
-        </div>
-      </div> -->
 
       <q-list bordered class="q-pa-lg rounded-borders">
         <q-item-label header>List of Items</q-item-label>

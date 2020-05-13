@@ -403,7 +403,7 @@ export default {
         vm.formData.set("email", vm.locations.email);
         vm.formData.set("can_do", vm.locations.can_do);
         vm.formData.set("about", vm.locations.about);
-        this.$q.loading.show();
+        vm.$q.loading.show();
         vm.$store
           .dispatch("locations/storeLocation", vm.formData)
           .then(function(res) {

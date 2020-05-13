@@ -1,9 +1,13 @@
 <template>
   <q-dialog v-model="show_dialog" full-width>
     <q-card>
-      <q-card-section>
+      <q-bar>
         <div class="text-h6">View Location</div>
-      </q-card-section>
+        <q-space />
+        <q-btn dense flat icon="close" v-close-popup color="negative">
+          <q-tooltip>Close</q-tooltip>
+        </q-btn>
+      </q-bar>
 
       <div class="row q-pa-sm">
         <div class="col-2">
@@ -14,12 +18,10 @@
           </q-card>
         </div>
       </div>
-      <div class="row">
-        <div class="col text-center">
+      <div class="col text-center">
           <h4>
-            <u>{{locations.name}}</u>
+            <u class="text-bold">{{locations.name}}</u>
           </h4>
-        </div>
       </div>
       <q-separator />
       <div class="row">
