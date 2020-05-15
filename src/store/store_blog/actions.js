@@ -26,3 +26,30 @@ export async function storeBlogGallery({ commit }, formData){
         return false
     }
 }
+
+export async function updateBlog({ commit }, blogs){
+    try {
+        const res = await $http.put('/blog/'+blogs.id, blogs);
+    } catch(e){
+        return false
+    }
+}
+
+export async function updateBlogGallery({ commit }, formData){
+    try {
+        const res = await $http.post('/blog-gallery', formData);
+        commit('UPDATE_BLOG', res.data);
+    } catch(e){
+        return false
+    }
+}
+
+export async function deleteBlogGallery({ commit }, data){
+    
+    try {
+        const res = await $http.delete('/blog-gallery/' + data.id);
+    } catch (e) {
+        return false
+    }
+
+}

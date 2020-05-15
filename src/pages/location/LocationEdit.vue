@@ -278,13 +278,12 @@
                   style="height: 140px; max-width: 150px"
                 >
                   <q-btn
-                    @click="deleteGallery($event, img.id, img.galleries)"
+                    @click.exact="deleteGallery($event, img.id, img.galleries)"
                     class="absolute all-pointer-events"
                     style="top: 8px; right: 8px"
                     round
                     color="red"
                     size="10px"
-                    icon="clear"
                   />
                 </q-img>
 
@@ -528,8 +527,8 @@ export default {
 
     deleteGallery(e, id, path) {
       console.log(path);
-      e.path[5].remove();
-      this.$store.dispatch("galleries/deleteGallery", { id: id, path: path });
+      e.path[4].remove();
+      // this.$store.dispatch("galleries/deleteGallery", { id: id, path: path });
     },
 
     factoryFnThumbnail(file) {

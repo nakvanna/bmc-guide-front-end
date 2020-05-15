@@ -8,6 +8,7 @@
             <q-item-section class="text-bold text-center">POST BY</q-item-section>
             <q-item-section class="text-bold text-right">ACTION</q-item-section>
           </q-item>
+          <!--  -->
           <q-item clickable v-ripple @click="$refs.blog_view.showDialog(blog)" v-for="(blog, i) in blogs" :key="i">
             <q-item-section>{{blog.title}}</q-item-section>
             <q-item-section class="text-center">{{blog.post_by}}</q-item-section>
@@ -17,7 +18,7 @@
                   round
                   color="primary"
                   icon="edit"
-                  @click="$refs.sponsor_edit.showDialog(sponsor)"
+                  @click.stop="$refs.blog_edit.showDialog(blog)"
                 />
                 <q-btn round color="negative" icon="delete" @click="comfirmLocation(blog.id, i)" />
               </div>

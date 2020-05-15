@@ -14,3 +14,4 @@ export function UPDATE_BLOG (state, payload) {
 export function REMOVE_BLOG (state, i) {
     state.blogs.splice(i, 1);
 }
+
