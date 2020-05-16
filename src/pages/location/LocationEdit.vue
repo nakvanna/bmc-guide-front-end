@@ -277,13 +277,22 @@
                   spinner-color="red"
                   style="height: 140px; max-width: 150px"
                 >
-                  <q-btn
+                  <!-- <q-btn
                     @click.exact="deleteGallery($event, img.id, img.galleries)"
                     class="absolute all-pointer-events"
                     style="top: 8px; right: 8px"
                     round
                     color="red"
                     size="10px"
+                  />-->
+                  <q-icon
+                   @click.exact="deleteGallery($event, img.id, img.galleries)"
+                   class="absolute all-pointer-events"
+                    style="top: 8px; right: 8px"
+                    round
+                    color="red"
+                    size="20px"
+                    name="delete"
                   />
                 </q-img>
 
@@ -526,9 +535,9 @@ export default {
     },
 
     deleteGallery(e, id, path) {
-      console.log(path);
-      e.path[4].remove();
-      // this.$store.dispatch("galleries/deleteGallery", { id: id, path: path });
+      // console.log(e);
+      e.path[2].remove();
+      this.$store.dispatch("galleries/deleteGallery", { id: id, path: path });
     },
 
     factoryFnThumbnail(file) {

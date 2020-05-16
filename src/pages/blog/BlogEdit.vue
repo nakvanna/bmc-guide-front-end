@@ -52,7 +52,7 @@
               spinner-color="red"
               style="height: 140px; max-width: 150px"
             >
-              <q-btn
+              <!-- <q-btn
                 @click.stop="deleteGallery(i, img.id, img.gallery)"
                 class="absolute all-pointer-events"
                 style="top: 8px; right: 8px"
@@ -60,6 +60,16 @@
                 color="red"
                 size="10px"
                 icon="clear"
+              />-->
+              <q-icon
+                @click.stop="deleteBlogGallery($event, img.id, img.gallery)"
+                cursor-pointer
+                class="absolute all-pointer-events"
+                style="top: 8px; right: 8px"
+                round
+                color="red"
+                size="20px"
+                name="delete"
               />
             </q-img>
 
@@ -175,10 +185,10 @@ export default {
       });
     },
 
-    deleteGallery(i, id, path) {
-        // console.log(this.blogs)
-      this.blogs.blog_gallery.splice(i, 1);
-        this.$store.dispatch("blogs/deleteBlogGallery", { id: id, path: path });
+    deleteBlogGallery(e, id, path) {
+      console.log(e.path)
+      e.path[2].remove();
+      this.$store.dispatch("blogs/deleteBlogGallery", { id: id, path: path });
     },
 
     onReset() {

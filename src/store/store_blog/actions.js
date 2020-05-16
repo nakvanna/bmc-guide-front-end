@@ -44,6 +44,18 @@ export async function updateBlogGallery({ commit }, formData){
     }
 }
 
+export async function deleteBlog({ commit }, data){
+
+    try {
+        const res = await $http.delete('/blog/' + data.id);
+        commit('REMOVE_BLOG', data.i);
+        return true;
+    } catch(e){
+        return false
+    }
+
+}
+
 export async function deleteBlogGallery({ commit }, data){
     
     try {
